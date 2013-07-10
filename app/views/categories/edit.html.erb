@@ -1,0 +1,22 @@
+<h1>Categories#edit</h1>
+<p>Find me in app/views/categories/edit.html.erb</p>
+
+<div class = "container">
+
+<h1>Edit Category</h1>
+
+<% if defined? flash %>
+	<% if flash[:success] %>
+		<p><%= flash[:success] %></p>
+	<% elsif flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+		    <p><%= error %></p>
+		   <% end %>
+	<% end %>
+<% end %>
+
+	<%= simple_form_for @Category do |c| %>
+	<%= c.input :name %>
+	<%= c.button  :submit, class: "btn btn-primary" %>
+	<% end %>
+</div>

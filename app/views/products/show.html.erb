@@ -1,0 +1,23 @@
+<div class = "container">
+	<h2>Product Information</h2>
+
+	<p>
+		<% if defined? flash %>
+		<%= flash[:message] %>
+		<% end %>
+	</p>
+
+	<p>
+		<% if defined? notice %>
+		<%= notice %>
+		<% end %>
+	</p>	
+
+	<%= @Product.name %> <br>
+	<%= "Category: " + @Product.category.name %> <br>
+	<p><%= @Product.description %> </p> <br>
+
+	<p><%= link_to "Edit Product", edit_product_path %></p>
+	<p><%= link_to "Delete Product", new_product_path %></p>
+	<p><%= link_to "Show All Products", products_path %></p>
+</div>

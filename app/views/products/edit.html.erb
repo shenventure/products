@@ -1,0 +1,22 @@
+<div class = "container">
+
+<h1>Edit Product</h1>
+
+<% if defined? flash %>
+	<% if flash[:success] %>
+		<p><%= flash[:success] %></p>
+	<% elsif flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+		    <p><%= error %></p>
+		   <% end %>
+	<% end %>
+<% end %>
+
+	<%= simple_form_for @Product do |product| %>
+	<%= product.input :name %>
+	<%= product.association :category, as: :select, include_blank: false %>	
+	<%= product.input :description %>
+	<%= product.input :pricing %>
+	<%= product.button  :submit, class: "btn btn-primary" %>
+	<% end %>
+</div>

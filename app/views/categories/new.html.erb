@@ -1,0 +1,19 @@
+<div class = "container">
+
+<h1>Add a New Category</h1>
+
+<% if defined? flash %>
+	<% if flash[:success] %>
+		<p><%= flash[:success] %></p>
+	<% elsif flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+		    <p><%= error %></p>
+		   <% end %>
+	<% end %>
+<% end %>
+
+	<%= simple_form_for @Category do |c| %>
+	<%= c.input :name %>
+	<%= c.button  :submit, class: "btn btn-primary" %>
+	<% end %>
+</div>
