@@ -12,7 +12,7 @@
 	<% end %>
 <% end %>
 
-	<%= simple_form_for @Product do |p| %>
+	<%= simple_form_for @Product do |p| %>  
 	<%= p.input :name %>
 	<%= p.association :category, as: :select, include_blank: false %>	
 	<%= p.input :description %>

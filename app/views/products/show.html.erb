@@ -1,6 +1,8 @@
 <div class = "container">
 	<h2>Product Information</h2>
 
+	<p><%= link_to 'Edit Product', edit_product_path %></p> <br>
+
 	<p>
 		<% if defined? flash %>
 		<%= flash[:message] %>
@@ -12,12 +14,48 @@
 		<%= notice %>
 		<% end %>
 	</p>	
+	
 
+	<table class="table">
+		<tr>
+			<th>Product Name</th>
+			<th>Category</th>
+			<th>Description</th>
+			<th>Price</th>
+		</tr>
+		<tr>
+			<td><%= @Product.name %></td>
+			<td><%= @Product.category.name %></td>
+			<td><%= @Product.description %></td>
+			<td><%= @Product.pricing %></td>
+		</tr>	
+	</table> <br>
+	<div>
+		<h4>Comments</h4>
+		<table class="table">
+		<!-- 	<tr>
+				<th>Comment</th>
+				<th>Author</th>
+			</tr> -->
+			<tr>
+				<% @Product.comments.each do |comment| %>
+				<td><%= comment.content %></td>
+				<td>Posted by: <%= comment.author %></td>
+				</tr>	
+			<% end %>
+			
+		</table>
+	</div>		
+			<p><%= link_to 'Add Comment', new_product_comment_path(@Product.id) %></p>
+			<p><%= button_to 'Delete', p, method: :delete %></p>
+			<p><%= link_to "Show All Products", products_path %></p>
+
+</div>
+
+<!-- 
 	<%= @Product.name %> <br>
 	<%= "Category: " + @Product.category.name %> <br>
 	<p><%= @Product.description %> </p> <br>
-
+	<p><%= link_to 'Add Comment', "/products/:product_id/comments/new" %></p>
 	<p><%= link_to "Edit Product", edit_product_path %></p>
-	<p><%= link_to "Delete Product", new_product_path %></p>
-	<p><%= link_to "Show All Products", products_path %></p>
-</div>
+	<p><%= link_to "Delete Product", new_product_path %></p> -->

@@ -1,0 +1,11 @@
+<div class = "container">
+
+	<h1>Add a New Comment</h1>
+
+		<%= simple_form_for [@Product, @Comment] do |comment| %>
+		<%= comment.input :content %>
+		<%= comment.input :author %>
+		<%= comment.input :product_id, :as => :hidden, :input_html => { :value => "#{@Product.id}" } %>
+		<%= comment.button  :submit, class: "btn btn-primary" %>
+		<% end %>
+</div>

@@ -8,18 +8,29 @@
 			<th>Category</th>
 			<th>Description</th>
 			<th>Price</th>
+<!-- 			<th>Comment</th>
+			<th>Author</th> -->
+			<th>Product Info</th>
 			<th>Edit</th>
+			<th>Add Comment</th>
 			<th>Delete</th>
 		<% @Product.each do |p| %>	
 		<tr>
-			<td><%= p.name%></td>
+			<td><%= p.name %></td>
 			<td><%= p.category.name %></td>
 			<td><%= p.description %></td>
 			<td><%= p.pricing %></td>
+<!-- 			<td><% p.comments.each do |comment| %>
+			<%= comment.content %></td>
+			<% end %>
+			<td><% p.comments.each do |comment| %>
+			<%= comment.author %></td>
+			<% end %> -->
+			<td><%= link_to 'Details', product_path(p.id) %></td>
 			<td><%= link_to 'Edit', edit_product_path(p.id) %></td>
+			<td><%= link_to 'Add Comment', "/products/#{p.id}/comments/new" %></td>
 			<td><%= button_to 'Delete', p, method: :delete %></td>
 		</tr>	
 		<% end %>
 	</table>	
-
 </div>

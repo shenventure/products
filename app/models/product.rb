@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   validates :description, :name, :pricing, presence: true
 
   belongs_to :category
+  has_many :comments, dependent: :destroy
 end
