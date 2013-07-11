@@ -2,6 +2,12 @@
 
 <h1>List of Products</h1>
 
+<h4><%= link_to 'Add a New Product', new_product_path %></h4>
+
+<% if defined? notice %>
+	<%= notice %>
+<% end %>	
+
 	<table class="table">
 		<tr>
 			<th>Product Name</th>
@@ -19,7 +25,7 @@
 			<td><%= p.name %></td>
 			<td><%= p.category.name %></td>
 			<td><%= p.description %></td>
-			<td><%= p.pricing %></td>
+			<td>$<%= p.pricing %></td>
 <!-- 			<td><% p.comments.each do |comment| %>
 			<%= comment.content %></td>
 			<% end %>
@@ -29,7 +35,7 @@
 			<td><%= link_to 'Details', product_path(p.id) %></td>
 			<td><%= link_to 'Edit', edit_product_path(p.id) %></td>
 			<td><%= link_to 'Add Comment', "/products/#{p.id}/comments/new" %></td>
-			<td><%= button_to 'Delete', p, method: :delete %></td>
+			<td><%= button_to 'Delete', p, method: :delete, class: "btn btn-small btn-danger" %></td>
 		</tr>	
 		<% end %>
 	</table>	
